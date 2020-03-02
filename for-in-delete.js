@@ -39,9 +39,13 @@
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues( obj ) {
+function showValues( values ) {
   //Code Here
-}
+ let string = ""
+  for( let prop in values){
+    string += values[prop]
+  } return string
+} 
 
 
 
@@ -54,8 +58,15 @@ function showValues( obj ) {
 */
 
 //Code Here
-
-
+function greaterThan10(object) {
+  for (let key in object) {
+    if (object[key] > 10) {
+      object[key] = 0
+    }
+  }
+  return object
+}
+//why do nottation doesnt work
 
 ////////// PROBLEM 3 //////////
 
@@ -66,6 +77,11 @@ function showValues( obj ) {
 */
 
 //Code Here
+function double(object){
+  for(let key in object){
+    object[key] *= 2
+  } return object
+}
 
 
 
@@ -80,7 +96,14 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function secrets(object){
+  let str = ""
+  for (let key in object){
+    if (key.slice(0, 2) === "sh"){
+      str += object[key]
+    }
+ } return str
+}
 
 
 /* 
@@ -111,6 +134,13 @@ function showValues( obj ) {
 */
 
 //Code Here
+function removePassword(object){
+  for(let key in object){
+    if(key === "password"){
+      delete object[key];
+    }
+  } return object
+}
 
 
 
@@ -130,8 +160,14 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
-
+function removebig(object){
+  for(let key in object){
+    if(object[key] > 100){
+      delete object[key]
+    }
+  }return object
+}
+console.log(removebig(deleteTheBigNumbers))
 
 ////////// PROBLEM 7 //////////
 
@@ -143,8 +179,20 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
-
+function startsWithK(object){
+  for(let key in object){
+    if(key.slice(0,1) === "k"){
+      delete object[key]
+    }
+  } return object
+}
+// function startsWithK(object){
+// for(let key in object){
+//   if(key.startsWith("k")){
+//     delete object[key]
+//   }
+// } return object
+// }
 
 ////////// PROBLEM 8 //////////
 
@@ -160,3 +208,11 @@ var deleteTheBigNumbers = {
 //Code Here
 
 
+function hiddenTreasure(object){
+  for(let key in object){
+    if(!object[key].includes('treasure')){
+      delete object[key]
+    }
+  }
+  return object
+}
